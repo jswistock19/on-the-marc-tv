@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>On The Marc TV — A Media Empire</title>
+  <meta name="description" content="On The Marc TV: Primetime classics, series, and movies. Your destination for timeless entertainment." />
+  <meta property="og:title" content="On The Marc TV — A Media Empire" />
+  <meta property="og:description" content="Primetime classics, action, drama, and adventure — all on On The Marc TV." />
+  <meta property="og:image" content="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/474c7826-89f6-41f3-8a15-4d3260453ffa.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root, [data-theme="dark"] {
+      --color-bg:              #0a0908;
+      --color-surface:         #111010;
+      --color-surface-2:       #171615;
+      --color-surface-offset:  #1c1b1a;
+      --color-surface-dynamic: #252322;
+      --color-divider:         #2a2826;
+      --color-border:          #333130;
+      --color-text:            #ede8e0;
+      --color-text-muted:      #8a857c;
+      --color-text-faint:      #4a4744;
+      --color-text-inverse:    #0a0908;
+      --color-primary:         #c0392b;
+      --color-primary-hover:   #e74c3c;
+      --color-primary-active:  #96281b;
+      --color-primary-glow:    rgba(192,57,43,0.18);
+      --color-gold:            #d4a017;
+      --color-gold-light:      #f0c040;
+      --color-gold-dim:        rgba(212,160,23,0.15);
+      --radius-sm:  0.25rem; --radius-md:  0.5rem; --radius-lg:  0.75rem;
+      --radius-xl:  1rem;    --radius-full:9999px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 200ms var(--ease-out);
+      --shadow-sm:  0 1px 3px rgba(0,0,0,0.5);
+      --shadow-md:  0 4px 16px rgba(0,0,0,0.6);
+      --shadow-lg:  0 12px 40px rgba(0,0,0,0.7);
+      --shadow-card:0 2px 8px rgba(0,0,0,0.6), 0 8px 32px rgba(0,0,0,0.4);
+      --text-xs:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl:  clamp(2.5rem, 1rem + 4vw, 5rem);
+      --text-hero: clamp(3rem, 0.5rem + 7vw, 8rem);
+      --space-1: 0.25rem; --space-2: 0.5rem;  --space-3: 0.75rem;
+      --space-4: 1rem;    --space-5: 1.25rem;  --space-6: 1.5rem;
+      --space-8: 2rem;    --space-10:2.5rem;   --space-12:3rem;
+      --space-16:4rem;    --space-20:5rem;      --space-24:6rem;
+      --content-narrow:  640px; --content-default: 1100px; --content-wide: 1400px;
+      --font-display: 'Playfair Display', 'Georgia', serif;
+      --font-body:    'Inter', 'Helvetica Neue', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: none; text-size-adjust: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; scroll-padding-top: var(--space-20); }
+    body { min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background-color: var(--color-bg); line-height: 1.6; overflow-x: hidden; }
+    img, video { display: block; max-width: 100%; height: auto; }
+    ul[role="list"], ol[role="list"] { list-style: none; }
+    button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; }
+    p, li { text-wrap: pretty; }
+    ::selection { background: var(--color-primary-glow); color: var(--color-text); }
+    :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: var(--radius-sm); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    .skip-link { position: absolute; top: -100%; left: var(--space-4); background: var(--color-primary); color: #fff; padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 600; z-index: 999; transition: top var(--transition); }
+    .skip-link:focus { top: var(--space-2); }
+    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--color-bg); } ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+    .container { max-width: var(--content-default); margin-inline: auto; padding-inline: clamp(var(--space-4), 4vw, var(--space-12)); }
+    .container--wide { max-width: var(--content-wide); }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: var(--space-3) 0; background: linear-gradient(to bottom, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.7) 70%, transparent 100%); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.04); transition: background var(--transition); }
+    .site-header.scrolled { background: rgba(10,9,8,0.97); border-bottom-color: var(--color-divider); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
+    .logo-wrap { display: flex; align-items: center; gap: var(--space-3); flex-shrink: 0; }
+    .logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-text .top { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; color: var(--color-gold); letter-spacing: 0.05em; }
+    .logo-text .bottom { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 900; color: var(--color-text); letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: var(--space-1); list-style: none; }
+    .nav-links a { font-size: var(--text-sm); font-weight: 500; color: var(--color-text-muted); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); transition: color var(--transition), background var(--transition); white-space: nowrap; }
+    .nav-links a:hover { color: var(--color-text); background: rgba(255,255,255,0.06); }
+    .nav-links a.active { color: var(--color-gold); }
+    .nav-right { display: flex; align-items: center; gap: var(--space-3); flex-shrink: 0; }
+    .btn-watch-live { display: flex; align-items: center; gap: var(--space-2); background: var(--color-primary); color: #fff; font-size: var(--text-sm); font-weight: 600; padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); transition: background var(--transition), transform var(--transition); }
+    .btn-watch-live:hover { background: var(--color-primary-hover); transform: translateY(-1px); }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff3b30; animation: pulse-dot 1.5s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.8); } }
+    .theme-toggle { width: 36px; height: 36px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); border: 1px solid var(--color-border); transition: color var(--transition), border-color var(--transition), background var(--transition); }
+    .theme-toggle:hover { color: var(--color-gold); border-color: var(--color-gold); background: var(--color-gold-dim); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: var(--space-2); }
+    .hamburger span { width: 22px; height: 2px; background: var(--color-text); border-radius: 1px; transition: all var(--transition); display: block; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav { position: fixed; top: 0; right: 0; bottom: 0; width: 280px; background: var(--color-surface); z-index: 200; transform: translateX(100%); transition: transform 0.35s var(--ease-out); padding: var(--space-20) var(--space-8) var(--space-8); display: flex; flex-direction: column; gap: var(--space-2); border-left: 1px solid var(--color-divider); }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav a { font-size: var(--text-base); font-weight: 500; color: var(--color-text-muted); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); transition: color var(--transition), background var(--transition); display: block; }
+    .mobile-nav a:hover { color: var(--color-text); background: rgba(255,255,255,0.05); }
+    .mobile-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 199; opacity: 0; pointer-events: none; transition: opacity var(--transition); }
+    .mobile-overlay.open { opacity: 1; pointer-events: all; }
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gemini_images/474c7826-89f6-41f3-8a15-4d3260453ffa.png'); background-size: cover; background-position: center top; transform: scale(1.05); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.55) 50%, rgba(10,9,8,0.75) 100%); }
+    .hero-overlay-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to top, var(--color-bg), transparent); }
+    .hero-content { position: relative; z-index: 1; padding-top: 120px; padding-bottom: var(--space-24); }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold); margin-bottom: var(--space-5); }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--color-gold); }
+    .hero-title { font-size: var(--text-hero); font-weight: 900; font-style: italic; line-height: 0.95; letter-spacing: -0.02em; color: var(--color-text); margin-bottom: var(--space-6); max-width: 14ch; }
+    .hero-title .accent { color: var(--color-gold); display: block; font-style: normal; }
+    .hero-desc { font-size: var(--text-lg); color: var(--color-text-muted); font-weight: 300; max-width: 48ch; line-height: 1.6; margin-bottom: var(--space-10); }
+    .hero-ctas { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: var(--space-3); background: var(--color-primary); color: #fff; font-size: var(--text-base); font-weight: 600; padding: var(--space-4) var(--space-8); border-radius: var(--radius-md); transition: background var(--transition), transform var(--transition), box-shadow var(--transition); }
+    .btn-primary:hover { background: var(--color-primary-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,57,43,0.4); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: var(--space-3); background: rgba(255,255,255,0.08); color: var(--color-text); font-size: var(--text-base); font-weight: 500; padding: var(--space-4) var(--space-8); border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.12); transition: background var(--transition), border-color var(--transition), transform var(--transition); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.22); transform: translateY(-2px); }
+    .hero-stats { position: absolute; bottom: var(--space-12); left: 0; right: 0; z-index: 2; }
+    .hero-stats-inner { display: flex; gap: var(--space-8); padding: var(--space-5) var(--space-8); background: rgba(10,9,8,0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-xl); width: fit-content; }
+    .stat { text-align: center; }
+    .stat-number { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 900; color: var(--color-gold); line-height: 1; }
+    .stat-label { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: var(--space-1); }
+    .ticker-bar { background: var(--color-primary); overflow: hidden; padding: var(--space-2) 0; }
+    .ticker-inner { display: flex; gap: var(--space-12); white-space: nowrap; animation: ticker-scroll 40s linear infinite; }
+    .ticker-inner:hover { animation-play-state: paused; }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { display: inline-flex; align-items: center; gap: var(--space-3); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.9); }
+    .ticker-sep { color: rgba(255,255,255,0.4); }
+    section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
+    .section-header { margin-bottom: var(--space-10); }
+    .section-eyebrow { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold); margin-bottom: var(--space-3); display: flex; align-items: center; gap: var(--space-2); }
+    .section-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--color-divider); max-width: 80px; }
+    .section-title { font-size: var(--text-2xl); font-weight: 900; color: var(--color-text); line-height: 1.1; margin-bottom: var(--space-3); }
+    .section-sub { font-size: var(--text-base); color: var(--color-text-muted); max-width: 55ch; }
+    .section-header-row { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+    .view-all { font-size: var(--text-sm); font-weight: 600; color: var(--color-gold); display: flex; align-items: center; gap: var(--space-2); white-space: nowrap; padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-gold-dim); background: var(--color-gold-dim); transition: all var(--transition); }
+    .view-all:hover { background: rgba(212,160,23,0.25); border-color: var(--color-gold); }
+    .now-playing-strip { background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); padding-block: var(--space-4); }
+    .now-playing-inner { display: flex; align-items: center; gap: var(--space-6); overflow-x: auto; scrollbar-width: none; }
+    .now-playing-inner::-webkit-scrollbar { display: none; }
+    .np-label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); white-space: nowrap; flex-shrink: 0; display: flex; align-items: center; gap: var(--space-2); }
+    .np-items { display: flex; gap: var(--space-3); }
+    .np-chip { display: flex; align-items: center; gap: var(--space-2); background: var(--color-surface-offset); border: 1px solid var(--color-border); border-radius: var(--radius-full); padding: var(--space-1) var(--space-4); font-size: var(--text-sm); white-space: nowrap; cursor: pointer; transition: all var(--transition); }
+    .np-chip:hover { border-color: var(--color-gold); color: var(--color-gold); background: var(--color-gold-dim); }
+    .np-chip.active { border-color: var(--color-primary); color: #fff; background: var(--color-primary); }
+    .featured-section { background: var(--color-surface); }
+    .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; }
+    .featured-media { position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 16/9; }
+    .featured-media img { width: 100%; height: 100%; object-fit: cover; }
+    .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); opacity: 0; transition: opacity var(--transition); cursor: pointer; }
+    .featured-media:hover .play-overlay { opacity: 1; }
+    .play-btn { width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,0.95); display: flex; align-items: center; justify-content: center; transform: scale(0.9); transition: transform var(--transition); }
+    .featured-media:hover .play-btn { transform: scale(1); }
+    .play-btn svg { fill: var(--color-primary); margin-left: 4px; }
+    .featured-badge { position: absolute; top: var(--space-3); left: var(--space-3); background: var(--color-primary); color: #fff; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); }
+    .featured-genre { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gold); margin-bottom: var(--space-3); }
+    .featured-title { font-size: var(--text-2xl); font-weight: 900; color: var(--color-text); line-height: 1.1; margin-bottom: var(--space-4); }
+    .featured-meta { display: flex; gap: var(--space-4); margin-bottom: var(--space-5); flex-wrap: wrap; }
+    .meta-tag { font-size: var(--text-xs); color: var(--color-text-muted); display: flex; align-items: center; gap: var(--space-1); }
+    .featured-desc { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7; max-width: 52ch; margin-bottom: var(--space-8); }
+    .rating-stars { display: flex; gap: 2px; margin-bottom: var(--space-5); }
+    .star { color: var(--color-gold); font-size: var(--text-sm); }
+    .shows-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); gap: var(--space-4); }
+    .show-card { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--color-surface-2); cursor: pointer; transition: transform var(--transition), box-shadow var(--transition); }
+    .show-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: var(--shadow-lg), 0 0 0 1px var(--color-border); }
+    .show-thumb { aspect-ratio: 2/3; width: 100%; object-fit: cover; transition: filter var(--transition); }
+    .show-card:hover .show-thumb { filter: brightness(1.08); }
+    .show-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%); opacity: 0.6; transition: opacity var(--transition); }
+    .show-card:hover .show-overlay { opacity: 0.85; }
+    .show-info { position: absolute; bottom: 0; left: 0; right: 0; padding: var(--space-4) var(--space-3); }
+    .show-title { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: var(--space-1); }
+    .show-year { font-size: var(--text-xs); color: rgba(255,255,255,0.55); }
+    .show-play-icon { position: absolute; top: var(--space-3); right: var(--space-3); width: 32px; height: 32px; border-radius: 50%; background: rgba(192,57,43,0.9); display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.8); transition: opacity var(--transition), transform var(--transition); }
+    .show-card:hover .show-play-icon { opacity: 1; transform: scale(1); }
+    .show-play-icon svg { fill: #fff; margin-left: 2px; }
+    .categories-section { background: var(--color-bg); }
+    .genre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr)); gap: var(--space-3); }
+    .genre-card { position: relative; border-radius: var(--radius-lg); padding: var(--space-6) var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border); text-align: center; cursor: pointer; transition: all var(--transition); overflow: hidden; }
+    .genre-card::before { content: ''; position: absolute; inset: 0; background: var(--genre-color, var(--color-primary)); opacity: 0; transition: opacity var(--transition); }
+    .genre-card:hover::before { opacity: 0.12; }
+    .genre-card:hover { border-color: var(--genre-color, var(--color-primary)); transform: translateY(-2px); }
+    .genre-icon { font-size: 2rem; margin-bottom: var(--space-2); position: relative; }
+    .genre-name { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); position: relative; }
+    .genre-count { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-1); position: relative; }
+    .classics-banner { position: relative; overflow: hidden; background: linear-gradient(135deg, #1a0a05 0%, #0d0505 50%, #0a0808 100%); border-top: 1px solid rgba(192,57,43,0.2); border-bottom: 1px solid rgba(192,57,43,0.2); }
+    .classics-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(192,57,43,0.15) 0%, transparent 60%); }
+    .classics-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--space-12); padding-block: clamp(var(--space-12), 6vw, var(--space-20)); }
+    .classics-quote { font-family: var(--font-display); font-size: var(--text-2xl); font-style: italic; color: var(--color-gold); line-height: 1.2; margin-bottom: var(--space-4); }
+    .classics-desc { font-size: var(--text-base); color: var(--color-text-muted); max-width: 50ch; margin-bottom: var(--space-8); }
+    .classics-scroll { display: flex; gap: var(--space-3); overflow-x: auto; scrollbar-width: none; padding-bottom: var(--space-2); }
+    .classics-scroll::-webkit-scrollbar { display: none; }
+    .classic-thumb { flex-shrink: 0; width: 120px; aspect-ratio: 2/3; border-radius: var(--radius-md); object-fit: cover; border: 2px solid transparent; transition: border-color var(--transition), transform var(--transition); cursor: pointer; }
+    .classic-thumb:hover { border-color: var(--color-gold); transform: scale(1.05); }
+    .schedule-section { background: var(--color-surface); }
+    .schedule-tabs { display: flex; gap: var(--space-2); margin-bottom: var(--space-8); border-bottom: 1px solid var(--color-divider); padding-bottom: 0; }
+    .schedule-tab { font-size: var(--text-sm); font-weight: 600; padding: var(--space-3) var(--space-5); color: var(--color-text-muted); border-radius: var(--radius-md) var(--radius-md) 0 0; cursor: pointer; transition: all var(--transition); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+    .schedule-tab:hover { color: var(--color-text); }
+    .schedule-tab.active { color: var(--color-gold); border-bottom-color: var(--color-gold); }
+    .schedule-grid { display: flex; flex-direction: column; gap: var(--space-3); }
+    .schedule-row { display: grid; grid-template-columns: 100px 1fr auto; align-items: center; gap: var(--space-4); background: var(--color-surface-2); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); transition: all var(--transition); cursor: pointer; }
+    .schedule-row:hover { border-color: var(--color-primary); background: var(--color-surface-offset); }
+    .schedule-row.now-on { border-color: var(--color-primary); background: rgba(192,57,43,0.07); }
+    .schedule-time { font-size: var(--text-sm); font-weight: 700; color: var(--color-gold); font-variant-numeric: tabular-nums; }
+    .schedule-title { font-size: var(--text-base); font-weight: 600; color: var(--color-text); margin-bottom: 2px; }
+    .schedule-desc { font-size: var(--text-xs); color: var(--color-text-muted); }
+    .schedule-badge { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); white-space: nowrap; }
+    .badge-live { background: rgba(192,57,43,0.2); color: var(--color-primary); border: 1px solid rgba(192,57,43,0.4); }
+    .badge-upcoming { background: rgba(212,160,23,0.12); color: var(--color-gold); border: 1px solid rgba(212,160,23,0.3); }
+    .badge-new { background: rgba(39,174,96,0.12); color: #27ae60; border: 1px solid rgba(39,174,96,0.3); }
+    .marquee-section { background: var(--color-bg); overflow: hidden; padding-block: var(--space-8); }
+    .marquee-track { display: flex; gap: var(--space-4); animation: marquee-scroll 50s linear infinite; width: max-content; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-section.reverse .marquee-track { animation-direction: reverse; }
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-card { flex-shrink: 0; width: 160px; position: relative; border-radius: var(--radius-md); overflow: hidden; cursor: pointer; }
+    .marquee-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; transition: filter var(--transition); }
+    .marquee-card:hover img { filter: brightness(1.1); }
+    .marquee-card-label { position: absolute; bottom: 0; left: 0; right: 0; padding: var(--space-4) var(--space-2) var(--space-2); background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); font-size: var(--text-xs); font-weight: 600; color: #fff; text-align: center; }
+    .india-waves-section { background: linear-gradient(135deg, #05080d 0%, #080d14 100%); border-top: 1px solid rgba(255,165,0,0.15); }
+    .india-waves-grid { display: grid; grid-template-columns: auto 1fr; gap: var(--space-12); align-items: center; }
+    .india-waves-badge { width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(135deg, #ff8c00, #ff6b00); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: var(--space-1); flex-shrink: 0; box-shadow: 0 0 40px rgba(255,140,0,0.3); }
+    .india-waves-badge .iw-top { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+    .india-waves-badge .iw-name { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 900; color: #fff; line-height: 1.1; text-align: center; }
+    .india-waves-badge .iw-sub { font-size: var(--text-xs); color: rgba(255,255,255,0.7); }
+    .brand-strip { background: linear-gradient(135deg, var(--color-primary) 0%, #7b1a12 100%); padding-block: clamp(var(--space-12), 6vw, var(--space-20)); position: relative; overflow: hidden; }
+    .brand-strip::after { content: ''; position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+    .brand-strip-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--space-12); }
+    .brand-strip-title { font-size: var(--text-2xl); font-weight: 900; font-style: italic; color: #fff; line-height: 1.15; }
+    .brand-strip-sub { font-size: var(--text-base); color: rgba(255,255,255,0.75); margin-top: var(--space-3); max-width: 50ch; }
+    .btn-outline-white { display: inline-flex; align-items: center; gap: var(--space-3); border: 2px solid rgba(255,255,255,0.7); color: #fff; font-size: var(--text-base); font-weight: 600; padding: var(--space-4) var(--space-8); border-radius: var(--radius-md); transition: all var(--transition); white-space: nowrap; }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+    .site-footer { background: var(--color-surface); border-top: 1px solid var(--color-divider); padding-block: var(--space-16) var(--space-8); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-12); margin-bottom: var(--space-12); }
+    .footer-brand .logo-wrap { margin-bottom: var(--space-4); }
+    .footer-tagline { font-size: var(--text-sm); color: var(--color-text-muted); max-width: 30ch; line-height: 1.7; }
+    .footer-social { display: flex; gap: var(--space-3); margin-top: var(--space-5); }
+    .social-btn { width: 36px; height: 36px; border-radius: var(--radius-md); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); font-size: 14px; transition: all var(--transition); }
+    .social-btn:hover { color: var(--color-gold); border-color: var(--color-gold); background: var(--color-gold-dim); }
+    .footer-heading { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gold); margin-bottom: var(--space-5); }
+    .footer-links { display: flex; flex-direction: column; gap: var(--space-3); list-style: none; }
+    .footer-links a { font-size: var(--text-sm); color: var(--color-text-muted); transition: color var(--transition); }
+    .footer-links a:hover { color: var(--color-text); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4); padding-top: var(--space-8); border-top: 1px solid var(--color-divider); }
+    .footer-copy { font-size: var(--text-xs); color: var(--color-text-faint); }
+    .footer-legal { display: flex; gap: var(--space-5); }
+    .footer-legal a { font-size: var(--text-xs); color: var(--color-text-faint); transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--color-text-muted); }
+    .fade-in { opacity: 1; }
+    @supports (animation-timeline: scroll()) {
+      .fade-in { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
+      @keyframes reveal-fade { to { opacity: 1; } }
+    }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } .featured-grid { grid-template-columns: 1fr; gap: var(--space-8); } .classics-inner { grid-template-columns: 1fr; } .brand-strip-inner { grid-template-columns: 1fr; } .india-waves-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .nav-links, .nav-right .btn-watch-live { display: none; } .hamburger { display: flex; } .hero-stats-inner { gap: var(--space-5); padding: var(--space-4) var(--space-5); } .footer-grid { grid-template-columns: 1fr; } .hero-title { font-size: clamp(2.5rem, 10vw, 5rem); } }
+    @media (max-width: 480px) { .shows-grid { grid-template-columns: repeat(2, 1fr); } .genre-grid { grid-template-columns: repeat(3, 1fr); } .hero-ctas { flex-direction: column; align-items: flex-start; } }
+    [data-theme="light"] { --color-bg: #f5f4f0; --color-surface: #ffffff; --color-surface-2: #faf9f7; --color-surface-offset: #efede8; --color-surface-dynamic: #e8e5df; --color-divider: #dbd8d2; --color-border: #d0cdc6; --color-text: #1a1714; --color-text-muted: #6a6662; --color-text-faint: #aba8a2; --color-primary: #b03425; --color-primary-hover: #c0392b; --shadow-sm: 0 1px 3px rgba(0,0,0,0.08); --shadow-md: 0 4px 16px rgba(0,0,0,0.10); --shadow-lg: 0 12px 40px rgba(0,0,0,0.14); --shadow-card: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06); }
+    [data-theme="light"] .hero-overlay { background: linear-gradient(135deg, rgba(245,244,240,0.7) 0%, rgba(245,244,240,0.3) 50%, rgba(245,244,240,0.6) 100%); }
+    [data-theme="light"] .classics-banner { background: linear-gradient(135deg, #2a0e08 0%, #1a0806 50%, #150a08 100%); }
+    [data-theme="light"] .india-waves-section { background: linear-gradient(135deg, #f0f4fa 0%, #e8f0f8 100%); }
+    [data-theme="light"] .brand-strip { background: linear-gradient(135deg, var(--color-primary) 0%, #6b1010 100%); }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#now-showing">Now Showing</a>
+    <a href="#movies">Movies</a>
+    <a href="#series">Series</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#categories">Genres</a>
+    <a href="#india-waves">India Waves</a>
+    <a href="#about">About</a>
+    <div style="margin-top: auto; padding-top: 2rem;"><a href="#" class="btn-primary" style="justify-content: center; display: flex;">▶ Watch Live</a></div>
+  </nav>
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Primary navigation">
+        <a href="#" class="logo-wrap" aria-label="On The Marc TV Home">
+          <svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="6" fill="#c0392b"/><rect x="5" y="14" width="6" height="12" rx="1" fill="white" opacity="0.9"/><polygon points="13,14 13,26 24,20" fill="white"/><rect x="26" y="14" width="2" height="12" rx="1" fill="white" opacity="0.7"/><rect x="30" y="14" width="2" height="12" rx="1" fill="white" opacity="0.5"/><rect x="34" y="14" width="2" height="12" rx="1" fill="white" opacity="0.3"/><rect x="5" y="8" width="30" height="3" rx="1" fill="#d4a017" opacity="0.8"/><rect x="5" y="29" width="30" height="3" rx="1" fill="#d4a017" opacity="0.8"/></svg>
+          <div class="logo-text"><span class="top">On The</span><span class="bottom">Marc TV</span></div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="#now-showing" class="active">Now Showing</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#series">Series</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#categories">Genres</a></li>
+          <li><a href="#india-waves">India Waves</a></li>
+        </ul>
+        <div class="nav-right">
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark/light mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+          <a href="#" class="btn-watch-live"><span class="live-dot"></span>Watch Live</a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero" aria-label="Hero banner">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-overlay-bottom"></div>
+      <div class="container hero-content">
+        <div class="hero-eyebrow">On The Marc TV — Primetime Entertainment</div>
+        <h1 class="hero-title">We've Cracked<span class="accent">The Code</span></h1>
+        <p class="hero-desc">Classic films, gripping series, and timeless entertainment — broadcast for every screen, every audience, every moment. This is television elevated.</p>
+        <div class="hero-ctas">
+          <a href="#now-showing" class="btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Start Watching</a>
+          <a href="#schedule" class="btn-secondary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>View Schedule</a>
+        </div>
+      </div>
+      <div class="hero-stats container">
+        <div class="hero-stats-inner">
+          <div class="stat"><div class="stat-number">100+</div><div class="stat-label">Titles</div></div>
+          <div class="stat"><div class="stat-number">24/7</div><div class="stat-label">Broadcasting</div></div>
+          <div class="stat"><div class="stat-number">Free</div><div class="stat-label">To Watch</div></div>
+          <div class="stat"><div class="stat-number">HD</div><div class="stat-label">Quality</div></div>
+        </div>
+      </div>
+    </section>
+    <div class="ticker-bar" aria-label="Now showing ticker">
+      <div class="ticker-inner" aria-hidden="true">
+        <span class="ticker-item">📺 <span class="ticker-sep">▸</span> Scott Bakula in Above Suspicion</span>
+        <span class="ticker-item">🎬 <span class="ticker-sep">▸</span> Open Range — Kevin Costner</span>
+        <span class="ticker-item">⭐ <span class="ticker-sep">▸</span> Elvis Presley in Flaming Star</span>
+        <span class="ticker-item">🎥 <span class="ticker-sep">▸</span> Tom Selleck — Broken Trust</span>
+        <span class="ticker-item">📡 <span class="ticker-sep">▸</span> Now Streaming: India Waves Weekly</span>
+        <span class="ticker-item">🏆 <span class="ticker-sep">▸</span> Kenny Rogers — The Gambler V</span>
+        <span class="ticker-item">🎞️ <span class="ticker-sep">▸</span> Patrick Stewart — The Canterville Ghost</span>
+        <span class="ticker-item">📺 <span class="ticker-sep">▸</span> Scott Bakula in Above Suspicion</span>
+        <span class="ticker-item">🎬 <span class="ticker-sep">▸</span> Open Range — Kevin Costner</span>
+        <span class="ticker-item">⭐ <span class="ticker-sep">▸</span> Elvis Presley in Flaming Star</span>
+        <span class="ticker-item">🎥 <span class="ticker-sep">▸</span> Tom Selleck — Broken Trust</span>
+        <span class="ticker-item">📡 <span class="ticker-sep">▸</span> Now Streaming: India Waves Weekly</span>
+        <span class="ticker-item">🏆 <span class="ticker-sep">▸</span> Kenny Rogers — The Gambler V</span>
+        <span class="ticker-item">🎞️ <span class="ticker-sep">▸</span> Patrick Stewart — The Canterville Ghost</span>
+      </div>
+    </div>
+    <div class="now-playing-strip" id="now-showing">
+      <div class="container">
+        <div class="now-playing-inner">
+          <div class="np-label"><span class="live-dot"></span>On Air Now</div>
+          <div class="np-items" role="list">
+            <div class="np-chip active" role="listitem">Above Suspicion</div>
+            <div class="np-chip" role="listitem">Open Range</div>
+            <div class="np-chip" role="listitem">Flaming Star</div>
+            <div class="np-chip" role="listitem">Broken Trust</div>
+            <div class="np-chip" role="listitem">India Waves</div>
+            <div class="np-chip" role="listitem">The Lucy Show</div>
+            <div class="np-chip" role="listitem">Logan's Run</div>
+            <div class="np-chip" role="listitem">Young Indiana Jones</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="featured-section" id="movies">
+      <div class="container">
+        <div class="featured-grid fade-in">
+          <div class="featured-media">
+            <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/dfff801e-3ce9-4e17-b49f-e1475237542b.png" alt="On The Marc TV Featured Cinematic Showcase" width="640" height="360" loading="eager"/>
+            <div class="play-overlay" role="button" aria-label="Play featured content" tabindex="0"><div class="play-btn"><svg width="28" height="28" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+            <div class="featured-badge">Now Showing</div>
+          </div>
+          <div class="featured-info">
+            <div class="featured-genre">Featured Presentation</div>
+            <h2 class="featured-title">Open Range</h2>
+            <div class="rating-stars" aria-label="4 out of 5 stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="color: var(--color-text-faint)">★</span></div>
+            <div class="featured-meta">
+              <span class="meta-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2h 19m</span>
+              <span class="meta-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>Western</span>
+              <span class="meta-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Kevin Costner</span>
+            </div>
+            <p class="featured-desc">A pair of free-range cattlemen graze their herd across the vast Montana frontier until they clash with a powerful land baron who wants to own everything — and everyone — in his path.</p>
+            <div class="hero-ctas">
+              <a href="#" class="btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Watch Now</a>
+              <a href="#schedule" class="btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>More Info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="series" style="background: var(--color-bg);">
+      <div class="container">
+        <div class="section-header-row section-header">
+          <div><div class="section-eyebrow">Full Library</div><h2 class="section-title">All Titles</h2></div>
+          <a href="#" class="view-all">Browse All ›</a>
+        </div>
+        <div class="shows-grid fade-in" id="showsGrid"></div>
+      </div>
+    </section>
+    <section class="marquee-section"><div class="marquee-track" id="marqueeTrack1" aria-hidden="true"></div></section>
+    <section class="marquee-section reverse" style="padding-top: 0;"><div class="marquee-track" id="marqueeTrack2" aria-hidden="true"></div></section>
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-header"><div class="section-eyebrow">Explore</div><h2 class="section-title">Browse by Genre</h2><p class="section-sub">From pulse-pounding action to timeless classics — there's something for every viewer.</p></div>
+        <div class="genre-grid fade-in">
+          <div class="genre-card" style="--genre-color: #c0392b"><div class="genre-icon">🤠</div><div class="genre-name">Western</div><div class="genre-count">14 titles</div></div>
+          <div class="genre-card" style="--genre-color: #2980b9"><div class="genre-icon">⚔️</div><div class="genre-name">Action</div><div class="genre-count">22 titles</div></div>
+          <div class="genre-card" style="--genre-color: #8e44ad"><div class="genre-icon">🎭</div><div class="genre-name">Drama</div><div class="genre-count">18 titles</div></div>
+          <div class="genre-card" style="--genre-color: #16a085"><div class="genre-icon">🔬</div><div class="genre-name">Sci-Fi</div><div class="genre-count">9 titles</div></div>
+          <div class="genre-card" style="--genre-color: #d4a017"><div class="genre-icon">👶</div><div class="genre-name">Family</div><div class="genre-count">11 titles</div></div>
+          <div class="genre-card" style="--genre-color: #c0392b"><div class="genre-icon">💘</div><div class="genre-name">Romance</div><div class="genre-count">8 titles</div></div>
+          <div class="genre-card" style="--genre-color: #27ae60"><div class="genre-icon">🌍</div><div class="genre-name">Adventure</div><div class="genre-count">16 titles</div></div>
+          <div class="genre-card" style="--genre-color: #f39c12"><div class="genre-icon">😂</div><div class="genre-name">Comedy</div><div class="genre-count">7 titles</div></div>
+          <div class="genre-card" style="--genre-color: #e74c3c"><div class="genre-icon">😱</div><div class="genre-name">Thriller</div><div class="genre-count">12 titles</div></div>
+          <div class="genre-card" style="--genre-color: #9b59b6"><div class="genre-icon">🏛️</div><div class="genre-name">Historical</div><div class="genre-count">6 titles</div></div>
+        </div>
+      </div>
+    </section>
+    <div class="classics-banner fade-in">
+      <div class="container">
+        <div class="classics-inner">
+          <div class="classics-text">
+            <div class="section-eyebrow">Timeless Classics</div>
+            <div class="classics-quote">"When it comes to TV,<br>we've cracked the code."</div>
+            <p class="classics-desc">A curated collection of Hollywood's golden era, legendary westerns, powerful dramas, and adventure serials that defined an entire generation of television.</p>
+            <a href="#" class="btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Explore Classics</a>
+          </div>
+          <div>
+            <div class="classics-scroll">
+              <img class="classic-thumb" src="https://picsum.photos/seed/western1/120/180" alt="Classic Western film" width="120" height="180" loading="lazy"/>
+              <img class="classic-thumb" src="https://picsum.photos/seed/drama2/120/180" alt="Classic Drama" width="120" height="180" loading="lazy"/>
+              <img class="classic-thumb" src="https://picsum.photos/seed/action3/120/180" alt="Classic Action film" width="120" height="180" loading="lazy"/>
+              <img class="classic-thumb" src="https://picsum.photos/seed/scifi4/120/180" alt="Classic Sci-Fi" width="120" height="180" loading="lazy"/>
+              <img class="classic-thumb" src="https://picsum.photos/seed/adventure5/120/180" alt="Classic Adventure" width="120" height="180" loading="lazy"/>
+              <img class="classic-thumb" src="https://picsum.photos/seed/thriller6/120/180" alt="Classic Thriller" width="120" height="180" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="schedule-section" id="schedule">
+      <div class="container">
+        <div class="section-header"><div class="section-eyebrow">Programming</div><h2 class="section-title">Today's Schedule</h2><p class="section-sub">Your daily primetime lineup — always something exceptional on air.</p></div>
+        <div class="schedule-tabs" role="tablist">
+          <button class="schedule-tab active" role="tab" onclick="switchTab(this)">Today</button>
+          <button class="schedule-tab" role="tab" onclick="switchTab(this)">Tomorrow</button>
+          <button class="schedule-tab" role="tab" onclick="switchTab(this)">Weekend</button>
+          <button class="schedule-tab" role="tab" onclick="switchTab(this)">Primetime</button>
+        </div>
+        <div class="schedule-grid fade-in">
+          <div class="schedule-row now-on"><div class="schedule-time">12:00 PM</div><div><div class="schedule-title">Above Suspicion</div><div class="schedule-desc">Scott Bakula · Crime Drama · 2000</div></div><span class="schedule-badge badge-live">● Live</span></div>
+          <div class="schedule-row"><div class="schedule-time">2:30 PM</div><div><div class="schedule-title">Flaming Star</div><div class="schedule-desc">Elvis Presley · Western · 1960</div></div><span class="schedule-badge badge-upcoming">Upcoming</span></div>
+          <div class="schedule-row"><div class="schedule-time">4:00 PM</div><div><div class="schedule-title">Open Range</div><div class="schedule-desc">Kevin Costner · Western Epic · 2003</div></div><span class="schedule-badge badge-upcoming">Upcoming</span></div>
+          <div class="schedule-row"><div class="schedule-time">6:30 PM</div><div><div class="schedule-title">Broken Trust</div><div class="schedule-desc">Tom Selleck · Legal Thriller · 1995</div></div><span class="schedule-badge badge-upcoming">Upcoming</span></div>
+          <div class="schedule-row"><div class="schedule-time">8:00 PM</div><div><div class="schedule-title">Helen of Troy</div><div class="schedule-desc">Historical Epic · 2003 · Double Feature</div></div><span class="schedule-badge badge-new">New</span></div>
+          <div class="schedule-row"><div class="schedule-time">10:30 PM</div><div><div class="schedule-title">The Gambler V</div><div class="schedule-desc">Kenny Rogers · Western Drama</div></div><span class="schedule-badge badge-upcoming">Upcoming</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="india-waves-section" id="india-waves">
+      <div class="container">
+        <div class="india-waves-grid fade-in">
+          <div class="india-waves-badge" aria-hidden="true"><span class="iw-top">Now Airing</span><span class="iw-name">India<br>Waves</span><span class="iw-sub">Weekly</span></div>
+          <div class="india-waves-text">
+            <div class="section-eyebrow">International Programming</div>
+            <h2 class="section-title">India Waves Weekly</h2>
+            <p class="section-sub" style="margin-bottom: var(--space-6);">A window into the vibrant world of Indian culture, music, film, and current events. Connecting communities across continents — now part of the On The Marc TV family.</p>
+            <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;"><a href="#" class="btn-primary">Watch Episodes</a><a href="#schedule" class="btn-secondary">Airing Schedule</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="brand-strip" id="about">
+      <div class="container">
+        <div class="brand-strip-inner">
+          <div><h2 class="brand-strip-title">Your Destination for<br>Primetime Excellence</h2><p class="brand-strip-sub">On The Marc TV is a free-to-watch broadcast network bringing classic films, beloved TV series, and international programming directly to your screen — 24 hours a day, 7 days a week. No subscription required.</p></div>
+          <a href="#" class="btn-outline-white">Learn More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo-wrap"><svg class="logo-icon" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="6" fill="#c0392b"/><rect x="5" y="14" width="6" height="12" rx="1" fill="white" opacity="0.9"/><polygon points="13,14 13,26 24,20" fill="white"/><rect x="26" y="14" width="2" height="12" rx="1" fill="white" opacity="0.7"/><rect x="30" y="14" width="2" height="12" rx="1" fill="white" opacity="0.5"/><rect x="34" y="14" width="2" height="12" rx="1" fill="white" opacity="0.3"/><rect x="5" y="8" width="30" height="3" rx="1" fill="#d4a017" opacity="0.8"/><rect x="5" y="29" width="30" height="3" rx="1" fill="#d4a017" opacity="0.8"/></svg><div class="logo-text"><span class="top">On The</span><span class="bottom">Marc TV</span></div></a>
+          <p class="footer-tagline">Classic films, beloved series, and international programming — broadcast free, 24/7.</p>
+          <div class="footer-social"><a href="#" class="social-btn" aria-label="Facebook">f</a><a href="#" class="social-btn" aria-label="Twitter">𝕏</a><a href="#" class="social-btn" aria-label="YouTube">▶</a><a href="#" class="social-btn" aria-label="Instagram">◎</a></div>
+        </div>
+        <div><div class="footer-heading">Watch</div><ul class="footer-links" role="list"><li><a href="#">Movies</a></li><li><a href="#">Series</a></li><li><a href="#">Westerns</a></li><li><a href="#">Classics</a></li><li><a href="#">India Waves</a></li><li><a href="#">Live Channel</a></li></ul></div>
+        <div><div class="footer-heading">Browse</div><ul class="footer-links" role="list"><li><a href="#">Action</a></li><li><a href="#">Drama</a></li><li><a href="#">Sci-Fi</a></li><li><a href="#">Family</a></li><li><a href="#">Adventure</a></li><li><a href="#">Historical</a></li></ul></div>
+        <div><div class="footer-heading">Network</div><ul class="footer-links" role="list"><li><a href="#">About Us</a></li><li><a href="#">Schedule</a></li><li><a href="#">Advertise</a></li><li><a href="#">Licensing</a></li><li><a href="#">Press</a></li><li><a href="#">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p class="footer-copy">© 2026 On The Marc TV. All rights reserved. A Primetime Media Network.</p><div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Accessibility</a></div></div>
+    </div>
+  </footer>
+  <script>
+    (function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d=r.getAttribute('data-theme')||'dark';function setTheme(mode){d=mode;r.setAttribute('data-theme',d);if(t)t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');if(t)t.innerHTML=d==='dark'?'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}setTheme(d);if(t)t.addEventListener('click',()=>setTheme(d==='dark'?'light':'dark'));})();
+    const header=document.getElementById('siteHeader');window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+    const heroBg=document.getElementById('heroBg');window.addEventListener('scroll',()=>{if(heroBg)heroBg.style.transform='scale(1.05) translateY('+(window.scrollY*0.25)+'px)';},{passive:true});
+    function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open');document.getElementById('hamburgerBtn').classList.toggle('open');}
+    function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');document.getElementById('mobileOverlay').classList.remove('open');document.getElementById('hamburgerBtn').classList.remove('open');}
+    function switchTab(el){document.querySelectorAll('.schedule-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
+    const shows=[{title:"Above Suspicion",year:"2000",seed:"above1"},{title:"Captain Powers",year:"1987",seed:"captainpow"},{title:"Atomic Train",year:"1999",seed:"atomictrain"},{title:"Dragonworld",year:"1996",seed:"dragonw"},{title:"Flaming Star",year:"1960",seed:"flamingst"},{title:"Greedy",year:"1994",seed:"greedym"},{title:"Helen of Troy",year:"2003",seed:"helentroy"},{title:"Open Range",year:"2003",seed:"openrange"},{title:"Red Baron",year:"2008",seed:"redbar"},{title:"Rough Riders",year:"1997",seed:"roughriders"},{title:"Broken Trust",year:"1995",seed:"brokentrust"},{title:"Supernova",year:"2005",seed:"supernova5"},{title:"Tinman",year:"1983",seed:"tinmanold"},{title:"Monte Walsh",year:"1970",seed:"montew"},{title:"Logan's Run",year:"1976",seed:"logansrun"},{title:"The Gambler V",year:"1994",seed:"gamblerV"},{title:"WiseGirls",year:"2002",seed:"wisegirls"},{title:"The Lucy Show",year:"1962",seed:"lucyshow"},{title:"Renegades",year:"1989",seed:"renegades"},{title:"Cabin by the Lake",year:"2000",seed:"cabinlake"}];
+    const grid=document.getElementById('showsGrid');shows.forEach(s=>{const card=document.createElement('div');card.className='show-card';card.setAttribute('role','button');card.setAttribute('tabindex','0');card.setAttribute('aria-label','Watch '+s.title);card.innerHTML=`<img class="show-thumb" src="https://picsum.photos/seed/${s.seed}/200/300" alt="${s.title} poster" width="200" height="300" loading="lazy"/><div class="show-overlay"></div><div class="show-info"><div class="show-title">${s.title}</div><div class="show-year">${s.year}</div></div><div class="show-play-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>`;grid.appendChild(card);});
+    function buildMarquee(shows,trackId){const track=document.getElementById(trackId);const doubled=[...shows,...shows];doubled.forEach(s=>{const card=document.createElement('div');card.className='marquee-card';card.innerHTML=`<img src="https://picsum.photos/seed/${s.seed}m/160/240" alt="${s.title}" width="160" height="240" loading="lazy"/><div class="marquee-card-label">${s.title}</div>`;track.appendChild(card);});}
+    buildMarquee(shows.slice(0,10),'marqueeTrack1');buildMarquee(shows.slice(10),'marqueeTrack2');
+    document.querySelectorAll('.np-chip').forEach(chip=>{chip.addEventListener('click',()=>{document.querySelectorAll('.np-chip').forEach(c=>c.classList.remove('active'));chip.classList.add('active');});});
+  </script>
+</body>
+</html>
